@@ -1,0 +1,23 @@
+.Team{
+  background: white;
+  border-radius: 5px 0 5px 0px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+}
+.TeamPlayer{
+  padding: 5px 15px;
+  display: inline-block;
+}
+.TeamPoints{
+  display: flex;
+  background:black;
+  color:white;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+}
