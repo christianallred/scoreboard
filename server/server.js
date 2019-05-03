@@ -16,7 +16,7 @@ const setup = async () => {
   await ensureDir(sessionStorePath);
 
   // const app = polka();
-  const app = express().listen({ host, port }, () =>
+  const app = polka().listen({ host, port }, () =>
     console.log(`Running on port: ${host}:${port}`),
   );
 
@@ -37,7 +37,8 @@ const setup = async () => {
   app
     .use(helmet())
     .use(sessionMiddleware)
-    .use(serveStatic(path.join(__dirname, "../build")));
+    .use(serveStatic(path.join(__dirname, "../build")))
+    //.use(express.static(path.join(__dirname, '../build')))
 
   // app.get('*', function (req, res) {
   //     res.sendFile(path.join(__dirname,'../build/index.html'))
