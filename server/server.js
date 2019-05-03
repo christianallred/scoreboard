@@ -38,7 +38,9 @@ const setup = async () => {
     .use(serveStatic(path.join(__dirname, "../build")))
 
   app.get('*', function (req, res) {
+
     console.log(res);
+    res.end()
       // res.sendFile(serveStatic(path.join(__dirname, "../build")))
   })
 
