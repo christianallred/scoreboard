@@ -34,9 +34,9 @@ const setup = async () => {
     .use(sessionMiddleware)
     .use(serveStatic(path.join(__dirname, "../build")));
 
-  // app.get('*', function(req, res) {
-  //   // res.sendFile(path.join(__dirname, '../build', 'index.html'));
-  // });
+  app.get('*', function(req, res) {
+    serveStatic(path.join(__dirname, "../build"))
+  });
 
   app.listen({ host, port }, () =>
     console.log(`Running on port: ${host}:${port}`),
