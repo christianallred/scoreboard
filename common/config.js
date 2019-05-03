@@ -1,5 +1,5 @@
 const port = process.env.NODE_ENV != 'development' ? 80 : 3000;
-const host = "silly-chat.localtest.me";
+const host = "scoreboard.evileeyore.com";
 
 module.exports = {
   port,
