@@ -1,6 +1,7 @@
 const path = require("path");
 const { ensureDir } = require("fs-extra");
 const polka = require("polka");
+const express = require('express')
 const helmet = require("helmet");
 const session = require("express-session");
 const LevelStore = require("level-session-store")(session);
@@ -14,10 +15,11 @@ const setup = async () => {
 
   await ensureDir(sessionStorePath);
 
-  const app = polka();
+  // const app = polka();
+  const app = express();
+  app.use( express.static(path.join(__dirname, '../build')) );
 
   const sessionStore = new LevelStore(sessionStorePath);
-
   const sessionMiddleware = session({
     secret: sessionSecret,
     resave: false,
@@ -32,11 +34,15 @@ const setup = async () => {
   app
     .use(helmet())
     .use(sessionMiddleware)
-    .use(serveStatic(path.join(__dirname, "../build")));
+    // .use(serveStatic(path.join(__dirname, "../build")));
 
-  app.get('*', function(req, res) {
-    serveStatic(path.join(__dirname, "../build"))
-  });
+  app.use( express.static(path.join(__dirname, '../build')) );
+  app.get('*', function (req, res) {
+      res.sendFile(path.join(__dirname,'../build/index.html'))
+  })
+  // app.get('*', function(req, res) {
+  //   serveStatic(path.join(__dirname, "../build"))
+  // });
 
   app.listen({ host, port }, () =>
     console.log(`Running on port: ${host}:${port}`),

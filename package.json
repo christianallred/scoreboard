@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.16.4",
     "express-session": "^1.16.1",
     "helmet": "^3.16.0",
     "level": "^5.0.1",
