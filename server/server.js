@@ -15,12 +15,10 @@ const setup = async () => {
 
   await ensureDir(sessionStorePath);
 
-  // const app = polka();
+  // const app = express();
   const app = polka().listen({ host, port }, () =>
     console.log(`Running on port: ${host}:${port}`),
   );
-
-  // app.use( express.static(path.join(__dirname, '../build')) );
 
   const sessionStore = new LevelStore(sessionStorePath);
   const sessionMiddleware = session({
@@ -37,12 +35,12 @@ const setup = async () => {
   app
     .use(helmet())
     .use(sessionMiddleware)
-    // .use(serveStatic(path.join(__dirname, "../build")))
-    .use(express.static(path.join(__dirname, '../build')))
+    .use(serveStatic(path.join(__dirname, "../build")))
 
-  // app.get('*', function (req, res) {
-  //     res.sendFile(path.join(__dirname,'../build/index.html'))
-  // })
+  app.get('*', function (req, res) {
+    console.log(res);
+      // res.sendFile(serveStatic(path.join(__dirname, "../build")))
+  })
 
   // applisten({ host, port }, () =>
   //   console.log(`Running on port: ${host}:${port}`),
