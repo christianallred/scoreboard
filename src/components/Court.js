@@ -28,15 +28,3 @@ var CourtContainer = connect(
   mapDispatchToProps
 )(Court);
 export default CourtContainer;
-
-
-var test = {
-  team1:{
-    players: 'Christian / Kolya',
-    points: 15
-  },
-  team2:{
-    players: 'Adam / Jon',
-    points: 0
-  }
-}

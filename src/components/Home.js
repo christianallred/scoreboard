@@ -31,15 +31,3 @@ var HomeContainer = connect(
   mapDispatchToProps
 )(Home);
 export default HomeContainer;
-
-
-var test = {
-  team1:{
-    players: 'Christian / Kolya',
-    points: 15
-  },
-  team2:{
-    players: 'Adam / Jon',
-    points: 0
-  }
-}

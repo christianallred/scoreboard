@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express-session": "^1.16.1",
+    "helmet": "^3.16.0",
+    "level": "^5.0.1",
+    "level-session-store": "^2.2.0",
+    "lodash": "^4.17.11",
+    "polka": "^0.5.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -10,6 +16,9 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "redux": "^4.0.1",
+    "serve-static": "^1.13.2",
+    "server-static": "^2.0.5",
+    "uuid": "^3.3.2",
     "ws": "^7.0.0"
   },
   "scripts": {

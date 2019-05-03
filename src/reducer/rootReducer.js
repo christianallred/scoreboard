@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+// import {combineReducers} from 'redux';
 
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
@@ -40,28 +40,26 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     var newState = Object.assign({}, state);
-
+    var {court, team, value} = action;
     switch (action.type) {
         case INCREMENT:
           // var newState = Object.assign({}, state);
-          var {court, team} = action
           newState[court][team].Points ++
           return newState;
 
         case DECREMENT:
-          var {court, team} = action
           newState[court][team].Points --
           return newState;
 
         case RESET:
-          var {court, team} = action
           newState[court].TeamA.Points = 0;
           newState[court].TeamB.Points = 0;
           return newState
 
         case UPDATE_NAME:
-          var {court, team, value} = action;
           newState[court][team].Name = value;
+          return newState;
+
         default:
           return state;
     }
@@ -94,12 +92,13 @@ export function updateName(court, team, value){
   };
 }
 
+/*
 function genRand(min, max, decimalPlaces) {
     var rand = Math.random()*(max-min) + min;
     var power = Math.pow(10, decimalPlaces);
     return Math.floor(rand*power) / power;
 }
-
+*/
 
 /******************************
 Selectors

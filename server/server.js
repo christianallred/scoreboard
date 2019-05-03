@@ -34,7 +34,7 @@ const setup = async () => {
   app
     .use(helmet())
     .use(sessionMiddleware)
-    .use(serveStatic(path.join(__dirname, "/public")));
+    .use(serveStatic(path.join(__dirname, "../build")));
 };
 
 setup();
