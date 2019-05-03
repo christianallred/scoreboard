@@ -37,8 +37,8 @@ const setup = async () => {
   app
     .use(helmet())
     .use(sessionMiddleware)
-    .use(serveStatic(path.join(__dirname, "../build")))
-    //.use(express.static(path.join(__dirname, '../build')))
+    // .use(serveStatic(path.join(__dirname, "../build")))
+    .use(express.static(path.join(__dirname, '../build')))
 
   // app.get('*', function (req, res) {
   //     res.sendFile(path.join(__dirname,'../build/index.html'))
