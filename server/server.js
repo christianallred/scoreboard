@@ -16,9 +16,7 @@ const setup = async () => {
   await ensureDir(sessionStorePath);
 
   // const app = polka();
-  const app = express().listen({ host, port }, () =>
-    console.log(`Running on port: ${host}:${port}`),
-  );
+  const app = express()
 
   // app.use( express.static(path.join(__dirname, '../build')) );
 
@@ -43,7 +41,9 @@ const setup = async () => {
   //     res.sendFile(path.join(__dirname,'../build/index.html'))
   // })
 
-  app
+  app.listen({ host, port }, () =>
+    console.log(`Running on port: ${host}:${port}`),
+  );
 };
 
 setup();
