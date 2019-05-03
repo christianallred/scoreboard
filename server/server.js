@@ -35,6 +35,10 @@ const setup = async () => {
     .use(helmet())
     .use(sessionMiddleware)
     .use(serveStatic(path.join(__dirname, "../build")));
+
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 };
 
 setup();
