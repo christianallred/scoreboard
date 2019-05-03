@@ -14,9 +14,7 @@ const setup = async () => {
 
   await ensureDir(sessionStorePath);
 
-  const app = polka().listen({ host, port }, () =>
-    console.log(`Running on port: ${host}:${port}`),
-  );
+  const app = polka();
 
   const sessionStore = new LevelStore(sessionStorePath);
 
@@ -39,6 +37,10 @@ const setup = async () => {
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));
   });
+
+  app.listen({ host, port }, () =>
+    console.log(`Running on port: ${host}:${port}`),
+  );
 };
 
 setup();
